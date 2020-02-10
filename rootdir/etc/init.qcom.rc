@@ -1092,7 +1092,7 @@ on property:sys.qbcharger.enable=true
 on property:sys.qbcharger.enable=false
     stop qbcharger
 
-service diag_mdlog_start /system/vendor/bin/diag_mdlog
+service diag_mdlog_start /system/vendor/bin/diag_mdlog -f /vendor/etc/modem_log.cfg -o /sdcard/diag_logs/modem/
     class late_start
     user shell
     group system oem_2901 sdcard_rw sdcard_r media_rw
@@ -1106,7 +1106,7 @@ service diag_mdlog_stop /system/vendor/bin/diag_mdlog -k
     disabled
     oneshot
 
-service diag_adlog_start /system/vendor/bin/diag_mdlog -f /vendor/etc/audio_log.cfg -o /sdcard/diag_logs/
+service diag_adlog_start /system/vendor/bin/diag_mdlog -f /vendor/etc/audio_log.cfg -o /sdcard/diag_logs/audio/
     class late_start
     user shell
     group system oem_2901 diag sdcard_rw sdcard_r media_rw
@@ -1120,7 +1120,7 @@ service diag_adlog_stop /system/vendor/bin/diag_mdlog -k
     disabled
     oneshot
 
-service diag_gplog_start /system/vendor/bin/diag_mdlog -f /vendor/etc/GNSS.cfg -o /sdcard/diag_logs/
+service diag_gplog_start /system/vendor/bin/diag_mdlog -f /vendor/etc/GNSS.cfg -o /sdcard/diag_logs/gps/
     class late_start
     user shell
     group system oem_2901 diag sdcard_rw sdcard_r media_rw
@@ -1148,7 +1148,7 @@ service diag_wflog_stop /system/vendor/bin/diag_mdlog -k
     disabled
     oneshot
 
-service diag_srlog_start /system/vendor/bin/diag_mdlog -f /vendor/etc/sensor_log.cfg -o /sdcard/diag_logs/
+service diag_srlog_start /system/vendor/bin/diag_mdlog -f /vendor/etc/sensor_log.cfg -o /sdcard/diag_logs/sensor/
     class late_start
     user shell
     group system oem_2901 diag sdcard_rw sdcard_r media_rw
@@ -1163,7 +1163,7 @@ service diag_srlog_stop /system/vendor/bin/diag_mdlog -k
     oneshot
 
 
-service diag_btlog_start /system/vendor/bin/diag_mdlog -f /vendor/etc/bt_log.cfg -o /sdcard/diag_logs/
+service diag_btlog_start /system/vendor/bin/diag_mdlog -f /vendor/etc/bt_log.cfg -o /sdcard/diag_logs/bt/
     class late_start
     user shell
     group system oem_2901 diag sdcard_rw sdcard_r media_rw
